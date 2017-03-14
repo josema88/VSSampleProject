@@ -1,0 +1,90 @@
+﻿@model Xpedia2.Models.Usuarios
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Informacion</h2>
+
+<div>
+    <h4>Usuarios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+    </dl>
+</div>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayName("Nombre")
+        </th>
+        <th>
+            @Html.DisplayName("Descripcion")
+        </th>
+        <th>
+            @Html.DisplayName("Lugar")
+        </th>
+        <th>
+            @Html.DisplayName("Fecha de Inicio")
+        </th>
+        <th>
+            @Html.DisplayName("Fecha de fin")
+        </th>
+        <th>
+            @Html.DisplayName("Precio")
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model.thingsToDo != null)
+    {
+        foreach (var item in Model.thingsToDo)
+        {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lugar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaDeInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaDeFin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                <a href="#" id="" onclick="addThingToDo(@item._key)">Add</a>
+
+            </td>
+        </tr>
+        }
+    }
+</table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
